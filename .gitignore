@@ -1,0 +1,20 @@
+# Eclipse specific
+.metadata
+.gradle
+.project
+bin/
+tmp/
+target/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
