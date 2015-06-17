@@ -71,6 +71,7 @@ public final class StorkSamlRequestAction extends AbstractAction {
 		IPersonalAttributeList pAttrList = new PersonalAttributeList();
 
 		PersonalAttribute attr = new PersonalAttribute();
+
 		attr.setName("eIdentifier");
 		attr.setIsRequired(true);
 		pAttrList.add(attr);

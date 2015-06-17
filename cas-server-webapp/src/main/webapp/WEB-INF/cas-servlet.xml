@@ -283,4 +283,27 @@
 		class="org.jasig.cas.support.spnego.web.flow.SpnegoCredentialsAction"
 		p:centralAuthenticationService-ref="centralAuthenticationService" />
 
+	<!-- NOTE: In ldaptive a bind is for life, that is, after a successful authentication 
+		is performed further LDAP operations will be performed as the authenticated 
+		principal. The LDAP Authentication Handler performs a bind. This means that 
+		connections coming from pooledLdapConnectionFactory might be using the user 
+		istXXXXXX instead of the user cas. The code as it stands works because from 
+		the user cas as the individual users istXXXXXX have read permissions to the 
+		field istPersonPasswordExpirationDate in LDAP. Is this is to change this 
+		code will stop working. -->
+<!-- 	<bean id="passwordExpiryCheckAction" -->
+<!-- 		class="pt.ulisboa.tecnico.dsi.web.flow.PasswordExpiryCheckAction" -->
+<!-- 		p:ticketRegistry-ref="ticketRegistry" p:ldapAttributeRepository-ref="passwordExpiryAttributeRepository" -->
+<!-- 		p:passwordExpirationDateField="istPersonPasswordExpirationDate" -->
+<!-- 		p:warningDays="${password.policy.warningDays}" /> -->
+<!-- 	<bean id="passwordExpiryAttributeRepository" parent="abstractLDAPAttributeRepository" -->
+<!-- 		p:searchFilter="uid={0}" p:resultAttributeMapping-ref="passwordExpiryAttributes" /> -->
+<!-- 	<util:map id="passwordExpiryAttributes"> -->
+<!-- 		<entry key="istPersonPasswordExpirationDate" value="istPersonPasswordExpirationDate" /> -->
+<!-- 	</util:map> -->
+
+<!-- 	<bean id="changePasswordWebpageAction" -->
+<!-- 		class="pt.ulisboa.tecnico.dsi.web.flow.ChangePasswordWebpageAction" -->
+<!-- 		p:ticketRegistry-ref="ticketRegistry" p:changePasswordURL="${password.policy.url}" -->
+<!-- 		p:idHttpParameter="istid" p:serviceHttpParameter="url" /> -->
 </beans>

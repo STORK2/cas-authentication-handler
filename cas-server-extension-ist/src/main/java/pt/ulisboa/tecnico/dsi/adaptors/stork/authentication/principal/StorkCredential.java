@@ -13,10 +13,16 @@ public class StorkCredential implements Credential, Serializable {
 	
 	private final String STORK_IDENTIFIER = "eIdentifier"; 
 
+	private String username = null;
+
 	private String SamlResponse;
 	private STORKAuthnResponse authnResponse;
 	
 	public StorkCredential() {}
+	
+	public void setUsername(String username){
+		this.username = username;
+	}
 	
 	public String getSamlResponse() {
 		return SamlResponse;
@@ -36,15 +42,9 @@ public class StorkCredential implements Credential, Serializable {
 
 	@Override
 	public String getId() {
-		
-		PersonalAttribute attr;
-		
-		attr = authnResponse.getPersonalAttributeList().get(STORK_IDENTIFIER);
-		if(attr != null){
-			return attr.getValue().get(0);
-		}
-		
-		return null;
+
+		return username;
+
 	}
 
 }
